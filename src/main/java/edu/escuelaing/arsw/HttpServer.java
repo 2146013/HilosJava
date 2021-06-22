@@ -21,6 +21,7 @@ public class HttpServer implements Runnable{
     private boolean running = true;
     private static HttpServer _instance = new HttpServer();
     private HttpServer(){
+        int port = getPort();
     }
     private static HttpServer getInstance(){
         return _instance;
@@ -87,6 +88,12 @@ public class HttpServer implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    static int getPort() {
+        if (System.getenv("PORT") != null) {
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 36000; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 }
 
