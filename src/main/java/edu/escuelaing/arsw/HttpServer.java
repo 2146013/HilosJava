@@ -93,7 +93,7 @@ public class HttpServer implements Runnable{
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 36000; //returns default port if heroku-port isn't set(i.e. on localhost)
+        return 5000; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 }
 
